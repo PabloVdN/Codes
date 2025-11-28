@@ -584,6 +584,20 @@ axs[1].text(-0.19, 0.99, '(b)', transform=axs[1].transAxes,
 plt.subplots_adjust(wspace=7.5) # A bit of space between both subplots
 
 plt.tight_layout()
+# --- Rasterize just images (pcolormesh) ---
+for ax in axs:
+    for artist in ax.collections:
+        artist.set_rasterized(True) # The rest is not renderized!
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.Suppl.8.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
+
 plt.show()
 
 

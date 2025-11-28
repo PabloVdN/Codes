@@ -1222,9 +1222,21 @@ plt.subplots_adjust(wspace=0.001)  # A bit of space between both subplots
 
 # Adjust layout
 plt.tight_layout()
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes:
+    for artist in ax.collections:
+        artist.set_rasterized(True) # The rest is not renderized!
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.Suppl.4.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
 plt.show()
-
-
 # %% 
 # ============================== Figure S. 4 ================================== #
 # =========== Stokes 3x3 — First detuning ===========
@@ -1332,6 +1344,23 @@ cbar = fig.colorbar(sm, cax=cbar_ax)
 cbar.ax.tick_params(labelsize=40)
 cbar.set_ticks([-0.5, 0.0, 0.5])
 cbar.set_label(r'$S_{1,2,3}$', fontweight='bold', fontsize=60)
+
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes.flatten():  # CORRECT
+    for artist in ax.collections:
+        artist.set_rasterized(True)  # Only rasterize images
+
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.Suppl.4.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
+
 plt.show()
 
 # %% 
@@ -1441,6 +1470,21 @@ cbar = fig.colorbar(sm, cax=cbar_ax)
 cbar.ax.tick_params(labelsize=40)
 cbar.set_ticks([-0.5, 0.0, 0.5])
 cbar.set_label(r'$S_{1,2,3}$', fontweight='bold', fontsize=60)
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes.flatten():  
+    for artist in ax.collections:
+        artist.set_rasterized(True)  # Only rasterize images
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.Suppl.5.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
+
 plt.show()
 # %% 
 # ============================== Figure S. 6 ================================== #
@@ -1549,6 +1593,21 @@ cbar = fig.colorbar(sm, cax=cbar_ax)
 cbar.ax.tick_params(labelsize=40)
 cbar.set_ticks([-0.5, 0.0, 0.5])
 cbar.set_label(r'$S_{1,2,3}$', fontweight='bold', fontsize=60)
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes.flatten():
+    for artist in ax.collections:
+        artist.set_rasterized(True)  # Only rasterize images
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.Suppl.6.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
+
 plt.show()
 
 # %%
@@ -1654,6 +1713,21 @@ cbar = fig.colorbar(sm, cax=cbar_ax)
 cbar.ax.tick_params(labelsize=40)
 cbar.set_ticks([0.0, 0.25, 0.5, 0.75, 1.0])
 cbar.set_label(r'$\rho$', fontweight='bold', fontsize=60)
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes.flatten(): 
+    for artist in ax.collections:
+        artist.set_rasterized(True)  # Only rasterize images
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.Suppl.7.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
+
 plt.show()
 
 # %% 
@@ -1828,6 +1902,19 @@ cax_bot = fig.add_axes([0.95, 0.10, 0.02, 0.35])
 cb_bot = fig.colorbar(im_bottom_for_cbar, cax=cax_bot)
 cb_bot.set_label(r'$\rho$', fontweight='bold', fontsize=60)  # bottom colorbar label
 cb_bot.ax.tick_params(labelsize=35)
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes.flatten(): 
+    for artist in ax.collections:
+        artist.set_rasterized(True)  # Only rasterize images
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.3.pdf")
+# Actually save it
+fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
 
 plt.show()
 

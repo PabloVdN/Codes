@@ -1030,6 +1030,22 @@ for idx, ax in enumerate(axes_mix):
 
 # --- Same spacing between subplots as in the first 1x3 ---
 fig_mix.subplots_adjust(left=0.06, right=0.98, top=0.95, bottom=0.12, wspace=0.025)
+
+
+# --- Rasterize just images (pcolormesh) ---
+for ax in axes_mix:
+    for artist in ax.collections:
+        artist.set_rasterized(True) # The rest is not renderized!
+
+# Create the foler "Figures" if it doesn't exist
+figures_folder = os.path.join(current_path, "Figures")
+os.makedirs(figures_folder, exist_ok=True)
+# Whole path to save the figure
+save_path = os.path.join(figures_folder, "Fig.2.pdf")
+# Actually save it
+fig_mix.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
+
+
 plt.show()
 
 # %% Reflectivity detuning vs PL LPB minimum energy using LPB() at k=off

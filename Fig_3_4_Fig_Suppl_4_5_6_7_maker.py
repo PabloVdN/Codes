@@ -1232,7 +1232,7 @@ for ax in axes:
 figures_folder = os.path.join(current_path, "Figures")
 os.makedirs(figures_folder, exist_ok=True)
 # Whole path to save the figure
-save_path = os.path.join(figures_folder, "Fig.Suppl.4.pdf")
+save_path = os.path.join(figures_folder, "Fig.4.pdf")
 # Actually save it
 fig.savefig(save_path, format='pdf', bbox_inches='tight', transparent=False, metadata=None, dpi=300)
 
